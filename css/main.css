@@ -5,4 +5,81 @@
 body {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 500;
+  position: relative;
+  min-height: 100vh;
+}
+.loading-gear {
+  display: flex;
+  height: 100vh;
+  background-color: #333;
+  z-index: 99999;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  margin: 0.7rem;
+  cursor: pointer;
+}
+
+aside {
+  height: 100vh;
+  background-color: tomato;
+  width: 250px;
+  top: 0;
+  /* bottom: 0; */
+  position: fixed;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.close-open-bar {
+  cursor: pointer;
+}
+
+main {
+  margin-left: 50px;
+}
+
+.hide {
+  width: 50px;
+}
+
+.side-bar {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  right: 0;
+  background-color: blue;
+}
+
+.meal {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+.meal-showcase {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(245, 245, 220, 0.527);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0 0.5rem;
+  color: #111;
+  transition: all 0.5s ease-in-out;
+}
+
+.meal:hover .meal-showcase {
+  top: 0;
 }
