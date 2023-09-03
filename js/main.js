@@ -1,38 +1,57 @@
 let dataHTML = document.querySelector('.data');
 
-// #gear
+// #close aside bar
 
-// $(document).ready(function () {
-//   console.log('ready');
-//   $('body').css('overflow', 'visible');
-//   $('.loading-gear').fadeOut(2000);
-//   $('.loading-gear').css('display', 'none');
-// });
+$(document).ready(function () {
+  console.log('ready');
+  $('.loading-gear').fadeOut(2000);
+  $('body').css('overflow', 'visible');
+  $('.loading-gear').addClass('display', 'none');
+});
 
 // # habmorgur btn logic
 
 let asideBar = document.querySelector('aside');
 let closeOpenBtn = document.querySelector('.close-open-bar');
 
-closeOpenBtn.addEventListener('click', () => {
-  asideBar.classList.toggle('hide');
+function closeOpenBtnFunc() {
+  closeOpenBtn.addEventListener('click', () => {
+    asideBar.classList.toggle('hide');
+    if (!asideBar.classList.contains('hide')) {
+      $('aside li').slideUp(50);
+      document.querySelector('.close-open-bar i').classList.remove('fa-bars');
+      document.querySelector('.close-open-bar i').classList.add('fa-xmark');
+      $('aside li').slideDown(800);
+    } else {
+      document.querySelector('.close-open-bar i').classList.remove('fa-xmark');
+      document.querySelector('.close-open-bar i').classList.add('fa-bars');
+      $('aside li').slideUp(500);
+    }
+  });
+}
+
+function closeAsideBar() {
   if (!asideBar.classList.contains('hide')) {
-    $('li').slideUp(50);
-    document.querySelector('.close-open-bar i').classList.remove('fa-bars');
-    document.querySelector('.close-open-bar i').classList.add('fa-xmark');
-    $('li').slideDown(800);
-  } else {
     document.querySelector('.close-open-bar i').classList.remove('fa-xmark');
+
     document.querySelector('.close-open-bar i').classList.add('fa-bars');
-    $('li').slideUp(500);
+    asideBar.classList.add('hide');
   }
-});
+}
+
+closeOpenBtnFunc();
 
 // # homepage meals
 
 let mealsContainer = document.querySelector('.mealsContainer');
 
 async function getMeals() {
+  $(document).ready(function () {
+    console.log('ready');
+    $('.loading-gear').fadeOut(2000);
+    $('body').css('overflow', 'visible');
+  });
+
   const request = await fetch(
     'https://www.themealdb.com/api/json/v1/1/search.php?s='
   );
@@ -47,6 +66,7 @@ async function getMeals() {
 
 async function getOneMeal(id) {
   console.log(id);
+  closeAsideBar();
 
   let respone = await fetch(
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`

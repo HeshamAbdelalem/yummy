@@ -15,11 +15,11 @@ body {
   z-index: 99999;
 }
 
-ul {
+aside ul {
   list-style: none;
   padding: 0;
 }
-ul li {
+aside ul li {
   margin: 0.7rem;
   cursor: pointer;
 }
@@ -82,4 +82,8 @@ img {
 
 .meal:hover .meal-showcase {
   top: 0;
+}
+
+.loading-gear {
+  display: none !important;
 }
