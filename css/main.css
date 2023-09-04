@@ -8,9 +8,16 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
 .loading-gear {
+  position: fixed;
   display: flex;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+
   background-color: #333;
   z-index: 99999;
 }
@@ -82,8 +89,4 @@ img {
 
 .meal:hover .meal-showcase {
   top: 0;
-}
-
-.loading-gear {
-  display: none !important;
 }

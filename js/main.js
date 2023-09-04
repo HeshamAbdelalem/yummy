@@ -2,11 +2,16 @@ let dataHTML = document.querySelector('.data');
 
 // #close aside bar
 
-$(document).ready(function () {
+// $(document).ready(function () {
+//   console.log('ready');
+//   $('.loading-gear').fadeOut(2000);
+//   $('body').css('overflow', 'visible');
+//   $('.loading-gear').addClass('display', 'none');
+// });
+
+$(window).on('load', function () {
+  $('.loading-gear').fadeOut(1000);
   console.log('ready');
-  $('.loading-gear').fadeOut(2000);
-  $('body').css('overflow', 'visible');
-  $('.loading-gear').addClass('display', 'none');
 });
 
 // # habmorgur btn logic
@@ -46,12 +51,6 @@ closeOpenBtnFunc();
 let mealsContainer = document.querySelector('.mealsContainer');
 
 async function getMeals() {
-  $(document).ready(function () {
-    console.log('ready');
-    $('.loading-gear').fadeOut(2000);
-    $('body').css('overflow', 'visible');
-  });
-
   const request = await fetch(
     'https://www.themealdb.com/api/json/v1/1/search.php?s='
   );
@@ -65,6 +64,10 @@ async function getMeals() {
 // # get meal when click
 
 async function getOneMeal(id) {
+  $(window).on('load', function () {
+    $('.loading-gear').fadeOut(1000);
+    console.log('ready');
+  });
   console.log(id);
   closeAsideBar();
 
